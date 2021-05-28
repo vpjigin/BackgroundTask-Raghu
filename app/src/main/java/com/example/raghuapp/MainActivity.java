@@ -59,19 +59,6 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    private final BroadcastReceiver bReciever = new BroadcastReceiver() {
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            if (BluetoothDevice.ACTION_FOUND.equals(action)) {
-                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                // Create a new device item
-                DeviceItem newDevice = new DeviceItem(device.getName(), device.getAddress(), "false");
-                // Add it to our adapter
-                defaultAdapter.add(newDevice);
-            }
-        }
-    };
-
     @Override
     public void onClick(View v) {
         if(v == startServiceBt){
